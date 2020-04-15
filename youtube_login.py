@@ -6,11 +6,14 @@ print("Selenium Version : " + selenium.__version__)
 options = webdriver.ChromeOptions()
 options.add_argument("--window-position=0,0")
 options.add_argument("--window-size=1024,768")
+options.add_argument("--disk-cache-dir=C:\\Temp\\Test") # Default
+options.add_argument("--user-data-dir=C:\\Temp\\Test")
 
 # Pass the argument 1 to allow and 2 to block
 # remove the notification allow pop-up
 options.add_experimental_option("prefs", {
-    "profile.default_content_setting_values.notifications": 2
+    "profile.default_content_setting_values.notifications": 2,
+    "download.default_directory": 'C:\\Downloads'
 })
 
 # remove "Chrome is being controlled by automated test software" notificatoin
