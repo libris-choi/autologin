@@ -1,5 +1,6 @@
 import selenium
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
 print("Selenium Version : " + selenium.__version__)
 
