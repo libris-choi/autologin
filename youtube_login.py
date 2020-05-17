@@ -1,6 +1,7 @@
 import selenium
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
 
 print("Selenium Version : " + selenium.__version__)
 
@@ -9,6 +10,11 @@ options.add_argument("--window-position=0,0")
 options.add_argument("--window-size=1024,768")
 options.add_argument("--disk-cache-dir=C:\\Temp\\Test") # Default
 options.add_argument("--user-data-dir=C:\\Temp\\Test")
+options.add_argument("--ignore-gpu-blacklist")
+options.add_argument("--use-gl")
+options.add_argument("--enable-gpu-rasterization")
+options.add_argument("--use-skia-renderer")
+options.add_argument("--enable-oop-rasterization")
 
 # Pass the argument 1 to allow and 2 to block
 # remove the notification allow pop-up
@@ -26,6 +32,9 @@ driver = webdriver.Chrome(
 print("Browser Version : " + driver.capabilities['browserVersion'])
 print("chrome Driver Version : " +
       driver.capabilities['chrome']['chromedriverVersion'].split(' ')[0])
+
+# GPU
+#driver.get('chrome://gpu')
 
 # stackoverflow SSO
 driver.get('https://stackoverflow.com/users/signup?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent%27')
